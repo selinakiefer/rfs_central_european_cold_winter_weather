@@ -1,0 +1,49 @@
+## Configuration File for Performing a Shapley Additive Explanations (SHAP) analysis of the Forecast of a Qantile Random Forest (QRF) Model ##
+
+# Set the path and file names of the input data 
+PATH_input_data : './Predictors_Statistics_of_Field/'
+ifile_input_data : 'era5_statistics_u10_z100_z250_z500_z850_t850_H850_u300_msl_60W_60E_20N_80N_1950_2020_lead_time_14d.csv'
+
+# Set the path to the model
+PATH_model : './Trained_Models_Statistics_as_Predictors/'
+
+# Set the name of the model to be used
+ifile_name_model: 'QRF_av_tg_3E_20E_45N_60N_input_month_statistics_u10_z100_z250_z500_z850_t850_H850_u300_msl_60W_60E_20N_80N_lead_14d_without_2011_2012_with_tree_details.pt'
+
+# Set the path to the desired output folder for the plots
+PATH_plots : './SHAP/'
+
+# Set the quantiles of the quantile random forest (for evenly distributed quantiles the number of quantiles is sufficient)
+number_of_quantiles : 100
+distributed_evenly : True
+list_quantiles_qrf : [0.01, 0.05, 0.10, 0.20, 0.25, 0.33, 0.50, 0.66, 0.75, 0.95, 0.99]
+
+# Set additional information for the model name which cannot be inferred from the data directly (keep it short but still informative)
+input_data : 'month_statistics_u10_z100_z250_z500_z850_t850_H850_u300_msl'
+ground_truth : 'av_tg'
+unit_of_ground_truth_and_prediction : 'K'
+location_input: '60W_60E_20N_80N'
+location_ground_truth: '3E_20E_45N_60N'
+model_name : 'QRF_stat_all'
+
+# Set the lead time of the forecast
+lead_time : 14
+
+# Set the details of the winter which contains the time periods for the SHAP analysis
+start_year_of_winter : 2011
+
+start_month_winter : 11
+start_day_winter: 1
+
+end_month_winter: 4
+end_day_winter: 30
+
+# Set the details of the time periods for the SHAP analysis (the respective start and end dates of the time periods have to stand at the same position in both lists, the format of the dates has to be 'yyyy-mm-dd')
+start_dates_for_SHAP : ['2011-11-1', '2011-11-13', '2011-11-17', '2012-1-29', '2012-2-15', '2012-4-7', '2012-4-10']
+end_dates_for_SHAP : ['2011-11-12', '2011-11-16', '2012-1-28', '2012-2-14', '2012-4-6', '2012-4-9', '2012-4-30' ]
+time_period_name : ['Warm Period', 'Cold Period','Warm Period', 'Cold Period','Warm Period', 'Cold Period','Warm Period']
+
+
+
+
+

@@ -1,0 +1,43 @@
+## Configuration File for Comparing of the BS of the climatological ensemble and the RFC models ## 
+
+# Set the path and file names of the ground truth
+PATH_ground_truth : './Data_in_csv_Format/'
+ifile_ground_truth_cold_waves : 'eobsv23e_tg_3E_20E_45N_60N_1950_2020_binary_cold_waves_lead_time_14d.csv'
+
+# Set the path and file names of the BS values of the climatological_ensemble 
+PATH_climatological_ensemble_bs : './Skill_Assessment_with_BS/'
+ifile_climatological_ensemble_bs : 'Climatological_Ensemble_BS_ground_truth_cold_wave_days_3E_20E_45N_60N_input_av_tg_3E_20E_45N_60N_2000_2020.csv'
+
+# Set the path and file names of the BS values of the predictions
+PATHs_prediction_bs : ['./Skill_Assessment_with_BS/Data_BS_All_Grid_Points_of_Field_as_Predictors/','./Skill_Assessment_with_BS/Data_BS_All_Grid_Points_of_Field_as_Predictors/', './Skill_Assessment_with_BS/Data_BS_Statistics_as_Predictors/','./Skill_Assessment_with_BS/Data_BS_Statistics_as_Predictors/', './Skill_Assessment_with_BS/Data_BS_PCA_as_Predictors/', './Skill_Assessment_with_BS/Data_BS_PCA_as_Predictors/']
+
+ifiles_prediction_bs : ['RFC_BS_ground_truth_cold_wave_days_3E_20E_45N_60N_input_month_field_u10_z100_z250_z500_z850_t850_H850_u300_msl_60W_60E_20N_80N_lead_14d_2000_2020.csv','RFC_BS_ground_truth_cold_wave_days_3E_20E_45N_60N_input_month_field_u10_z100_z250_60W_60E_20N_80N_lead_14d_2000_2020.csv', 'RFC_BS_ground_truth_cold_wave_days_3E_20E_45N_60N_input_month_statistics_u10_z100_z250_z500_z850_t850_H850_u300_msl_60W_60E_20N_80N_lead_14d_2000_2020.csv', 'RFC_BS_ground_truth_cold_wave_days_3E_20E_45N_60N_input_month_statistics_u10_z100_z250_60W_60E_20N_80N_lead_14d_2000_2020.csv', 'RFC_BS_ground_truth_cold_wave_days_3E_20E_45N_60N_input_month_pca_n10_u10_z100_z250_z500_z850_t850_H850_u300_msl_60W_60E_20N_80N_lead_14d_2000_2020.csv','RFC_BS_ground_truth_cold_wave_days_3E_20E_45N_60N_input_month_pca_n10_u10_z100_z250_60W_60E_20N_80N_lead_14d_2000_2020.csv']
+
+
+# Set the path to the desired output folders
+PATH_plots : './Plotting_Difference_BS_BSS/'
+
+# Set the lead time
+lead_time : 14
+
+# Set the index (position in the list of input files above) for the representative models for plotting
+index_representative_rfc_model : 2
+
+# Set additional information which cannot be inferred from the data directly (keep it short but still informative)
+rfc_model_names : 'RFC_all_grid_points_pca_stat_all_sel'
+representative_rfc_model : 'RFC_stat_all_14d_lead'
+binary_ground_truth : 'cold_wave_days'
+
+# Set additional details to be shown on the plots
+input_data_label_climatological_ensemble : 'Climatological Ensemble' # if it's really long, put | in the string to create a linebreak in it, e.g. 'Climatological | Ensemble'
+input_data_labels_prediction_bs:  ['RFC_all', 'RFC_sel' , 'RFC_stat_all', 'RFC_stat_sel', 'RFC_pca_all', 'RFC_pca_sel']
+
+# Set the details to the desired winters
+start_year_of_first_winter : 2000
+start_year_of_last_winter : 2019
+
+start_month_winter : 11
+start_day_winter: 1
+
+end_month_winter: 4
+end_day_winter: 30
