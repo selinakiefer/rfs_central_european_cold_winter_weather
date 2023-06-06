@@ -1,0 +1,42 @@
+## Configuration File for Creating and Training a Random Forest Classifier (RFC) Model ##
+
+# Set the path and file names of the input data 
+PATH_input_data : './Predictors_Statistics_of_Field/'
+ifile_input_data : 'era5_statistics_u10_z100_z250_z500_z850_t850_H850_u300_msl_60W_60E_20N_80N_1950_2020_lead_time_14d.csv'
+
+# Set the path and file names of the ground truth
+PATH_ground_truth : './Data_in_csv_Format/'
+ifile_ground_truth : 'eobsv23e_tg_3E_20E_45N_60N_1950_2020_binary_cold_waves_lead_time_14d.csv'
+
+# Set the path to the desired output folder for the trained model and its 'metadata-file'
+PATH_model : './Trained_Classifier_Models_Statistics_as_Predictors/'
+
+# Set additional information for the model name which cannot be inferred from the data directly (keep it short but still informative)
+input_data : 'month_statistics_u10_z100_z250_z500_z850_t850_H850_u300_msl'
+ground_truth : 'cold_wave_days'
+location_input: '60W_60E_20N_80N'
+location_ground_truth: '3E_20E_45N_60N'
+
+# Set additional information for the model's 'metadata-file' (these can be longer)
+dataset_input_data : 'era5'
+dataset_ground_truth : 'eobs_v23_1e'
+type_input_data : 'statistics_of_field'
+type_ground_truth : 'cold_wave_days'
+training_period : 'winters_1950_2020'
+training_type : 'crossvalidation'
+
+# Decide if you want to save detailed information of the individual trees for e.g. applying Shapley Additive Explanations later (this will make the training notably slower)
+obtain_additional_details_of_trees : True
+
+# Set the lead time of the model (in days)
+lead_time : 14
+
+# Set the details of the desired winters for validation (the winter to be predicted is left out during training -> leave-one-(winter)-out-cross validation)
+start_year_of_first_winter : 2000
+start_year_of_last_winter : 2019
+
+start_month_winter : 11
+start_day_winter: 1
+
+end_month_winter: 4
+end_day_winter: 30
